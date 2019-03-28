@@ -1,0 +1,16 @@
+shared:
+    image: node:8
+
+jobs:
+    first-job:
+        requires: [ ~pr, ~commit ]
+        steps:
+            - echo: echo "this is first job."
+    second-job:
+        requires: [ first-job ]
+        steps:
+            - echo: echo "this is second job."
+    third-job:
+        requires: [ second-job ]
+        steps:
+            - echo: echo "this is third job."
