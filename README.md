@@ -1,6 +1,6 @@
 # Chain PR Example
 
-To use chain PR feature in Screwdriver v4, set `true` in pipeline-level annotation `screwdriver.cd/chainPR`.  
+To use chain PR feature in Screwdriver.cd, set `true` in pipeline-level annotation `screwdriver.cd/chainPR`.  
 Then, subsequent jobs in PR event will be chained according to the workflow in PR.
 
 ### Example
@@ -15,7 +15,7 @@ shared:
     image: node:8
 
 annotations:
-  screwdriver.cd/chainPR: true
+    screwdriver.cd/chainPR: true
 
 jobs:
     first-job:
@@ -28,13 +28,16 @@ jobs:
             - echo: echo "this is second job."
 ```
 
-Then, if you make a PR, subsequent jobs in PR branch will be chained according to workflow in PR evnet.  
-In this example, `second-job` will executed after the `first-job`, and `third-job` will be executed after the `second-job`.
+Then, if you make a PR, subsequent jobs in PR branch will be chained according to workflow in PR event.  
+In this example, `second-job` will be executed after the `first-job`, and `third-job` will be executed after the `second-job`.
 ```
 # screwdriver.yaml in PR branch
 
 shared:
     image: node:8
+
+annotations:
+    screwdriver.cd/chainPR: true
 
 jobs:
     first-job:
