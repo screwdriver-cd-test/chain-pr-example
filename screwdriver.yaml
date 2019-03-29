@@ -13,3 +13,7 @@ jobs:
         requires: [ first-job ]
         steps:
             - echo: echo "this is second job."
+    new-job:
+        requires: [ ~commit ]
+        steps:
+            - echo: echo "this is new job job."
