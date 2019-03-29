@@ -10,7 +10,7 @@ jobs:
         steps:
             - echo: echo "this is first job."
     second-job:
-        requires: [ ~pr ]
+        requires: [ first-job ]
         steps:
             - echo: echo "this is second job."
     third-job:
