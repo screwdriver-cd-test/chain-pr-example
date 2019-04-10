@@ -17,3 +17,7 @@ jobs:
         requires: [ second-job ]
         steps:
             - echo: echo "this is third job."
+    fourth-job:
+        requires: [ third-job ]
+        steps:
+            - echo: echo "this is fourth job."
