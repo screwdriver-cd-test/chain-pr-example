@@ -8,7 +8,7 @@ jobs:
     first-job:
         requires: [ ~pr, ~commit ]
         steps:
-            - echo: echo "this is first job."
+            - echo: echo "this is first job. $SD_JOB_ID"
             - pr: echo $SD_PULL_REQUEST
     second-job:
         requires: [ first-job ]
@@ -18,5 +18,5 @@ jobs:
     new-job:
         requires: [ ~pr, ~commit ]
         steps:
-            - echo: echo "this is new job job."
+            - echo: echo "this is new job job. $SD_JOB_ID"
             - pr: echo $SD_PULL_REQUEST
