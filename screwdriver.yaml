@@ -13,8 +13,13 @@ jobs:
     second-job:
         requires: [ first-job ]
         steps:
-            - echo: echo "this is second job."
+            - echo: echo "this is second job. $SD_JOB_ID"
             - pr: echo $SD_PULL_REQUEST
+    join-job:
+        requires: [ first-job, second-job ]
+        steps:
+            - echo: echo "this is join job. $SD_JOB_ID"
+            - pr: echo $SD_PULL_REQUEST          
     new-job:
         requires: [ ~pr, ~commit ]
         steps:
