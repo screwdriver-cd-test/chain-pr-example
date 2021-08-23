@@ -3,6 +3,8 @@ shared:
 
 annotations:
     screwdriver.cd/chainPR: true
+    screwdriver.cd/restrictPR: true
+
 
 jobs:
     first-job:
