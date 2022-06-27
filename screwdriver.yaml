@@ -13,3 +13,8 @@ jobs:
         requires: [ first-job ]
         steps:
             - echo: echo "this is second job."
+            - env: env
+    new-job:
+        requires: [ ~pr, ~commit ]
+        steps:
+            - echo: echo "this is new job job."
