@@ -14,5 +14,6 @@ jobs:
     steps:
       - echo: echo "this is second job."
   random-job:
+    requires: [second-job]
     steps:
       - echo: echo "this is random job."
