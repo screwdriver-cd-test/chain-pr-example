@@ -1,6 +1,9 @@
 shared:
   image: node:8
 
+annotations:
+  screwdriver.cd/chainPR: true
+
 jobs:
   first-job:
     requires: [~pr, ~commit]
