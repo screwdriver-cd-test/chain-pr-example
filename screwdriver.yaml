@@ -8,7 +8,7 @@ jobs:
   first-job:
     requires: [~pr, ~commit]
     steps:
-      - echo: echo "this is first job. Hello World!"
+      - echo: echo "this is first job. Hello World 123!"
   second-job:
     requires: [first-job]
     steps:
